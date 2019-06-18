@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model,login,authenticate
 
 def home_page(request):
 	context={'first':'Hello World','matter':'This is the homepage'}
-	if request.user.is_authenticated():
+	if request.user.is_authenticated:
 		context['premiumcontent']='i am chaitu'
 	return render(request,'homepage.html',context)
 
@@ -27,7 +27,7 @@ def contact_page(request):
 def login_page(request):
 	form=login_form(request.POST or None)
 	context={'form':form}
-	print(request.user.is_authenticated())
+	print(request.user.is_authenticated)
 	if form.is_valid():
 		print(form.cleaned_data)
 		username=form.cleaned_data.get('username')
