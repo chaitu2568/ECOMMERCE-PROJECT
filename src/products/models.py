@@ -1,6 +1,9 @@
 from django.db import models
 import random
 import os
+from .utils import unique_slug_generator
+from django.db.models.signals import pre_save,post_save
+
 
 def divide_filename_ext(filepath):
     basename=os.path.basename(filepath)
@@ -52,10 +55,17 @@ class Product(models.Model):
     active=models.BooleanField(default=True)
 
     objects=ProductManager()
-
+    def get_absolute_url(self):
+        return '/products/{slug}'.format(slug=self.slug)
 
     def __str__(self):
         return self.title
 
     def __unicode__(self):
         return self.title
+
+# To give a slug a random value before it saves in database
+def product_pre_save_receiver(sender,instance,*args,**kwargs):
+    if not instance.slug:
+        instance.slug=unique_slug_generator(instance)
+pre_save.connect(product_pre_save_receiver,sender=Product)
