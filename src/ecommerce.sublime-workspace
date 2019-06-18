@@ -1,0 +1,409 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"contact_form"
+			],
+			[
+				"fo",
+				"form\tTag"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"a",
+				"about_page"
+			],
+			[
+				"c",
+				"contact_page"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"hom",
+				"home_page"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "",
+			"file": "Ecommerce/Ecommerce/views.py",
+			"file_size": 1860,
+			"file_write_time": 132049606670034993,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Ecommerce/templates/contact/form.html",
+			"settings":
+			{
+				"buffer_size": 1464,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"file": "Ecommerce/templates/homepage.html",
+			"file_size": 1630,
+			"file_write_time": 132049592911206564,
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"file": "Ecommerce/Ecommerce/forms.py",
+			"file_size": 1613,
+			"file_write_time": 132049610346792801,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"file": "Ecommerce/Ecommerce/urls.py",
+			"file_size": 1192,
+			"file_write_time": 132049625315204196,
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/krishnachaitanyabogavalli/Desktop/ecommerce",
+		"/Users/krishnachaitanyabogavalli/Desktop/ecommerce/src"
+	],
+	"file_history":
+	[
+		"/Users/krishnachaitanyabogavalli/Desktop/ecommerce/src/Ecommerce/Ecommerce/settings.py",
+		"/Users/krishnachaitanyabogavalli/Desktop/ecommerce/src/Ecommerce/Ecommerce/templates/homepage.html",
+		"/Users/CHAITU/Tutorials/Python Django/23 First Clone Project/Blog_Clone_Project/blog_project/static/js/blog.js",
+		"/Users/krishnachaitanyabogavalli/Desktop/readme",
+		"/Since k is small, you can use the tournament metho",
+		"/Users/CHAITU/FOA/Divide and Conquer",
+		"/Users/CHAITU/SML/Reference /Ratings",
+		"/Users/krishnachaitanyabogavalli/Downloads/python/gana.c",
+		"/Users/krishnachaitanyabogavalli/Downloads/python/file.py",
+		"/Users/krishnachaitanyabogavalli/Downloads/hello.py"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Ecommerce/Ecommerce/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Ecommerce/templates/contact/form.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								641,
+								641
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Ecommerce/templates/homepage.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Ecommerce/Ecommerce/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Ecommerce/Ecommerce/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ecommerce.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
