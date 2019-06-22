@@ -36,6 +36,7 @@ urlpatterns = [
     # url(r'^products/(?P<slug>[\w-]+)/$',ProductDetailSlugView.as_view()),
     # url(r'^products_fbv/$',product_list_view),
     url(r'^bootstrap/$',TemplateView.as_view(template_name='bootstrap/example.html')),
+    url(r'^search/',include('search.urls',namespace='search')),
     url(r'^products/',include('products.urls',namespace='products')),
     url(r'^register/$',register_page,name='register'),
     url(r'^login/$',login_page,name='login'),
