@@ -1,10 +1,5 @@
 from django.conf.urls import url
 from products.views import (ProductListView,
-                            # product_list_view,
-                            # ProductDetailView,
-                            # product_detail_view,
-                            # ProductFeaturedListView,
-                            # ProductFeaturedDetailView,
                             ProductDetailSlugView,)
 app_name='products'
 urlpatterns = [
