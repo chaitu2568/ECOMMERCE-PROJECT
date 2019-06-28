@@ -18,7 +18,11 @@ from django.conf.urls.static import static
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.views.generic import TemplateView
-from .views import home_page,contact_page,about_page,login_page,register_page
+from django.contrib.auth.views import LogoutView
+from accounts.views import login_page,register_page
+from .views import home_page,contact_page,about_page
+from accounts.views import guest_register_page
+from addresses.views import check_out_address_create_view,check_out_address_reuse_view
 
 urlpatterns = [
 
@@ -27,6 +31,10 @@ urlpatterns = [
     url(r'^products/',include('products.urls',namespace='products')),
     url(r'^carts/',include('carts.urls',namespace='carts')),
     url(r'^register/$',register_page,name='register'),
+    url(r'^check_out/address/reuse_view/$',check_out_address_reuse_view,name='check_out_address_reuse'),
+    url(r'^check_out/address/create_view/$',check_out_address_create_view,name='check_out_address_create_view'),
+    url(r'^logout/$',LogoutView.as_view(),name='logout'),
+    url(r'^register/guest/$',guest_register_page,name='guest_register'),
     url(r'^login/$',login_page,name='login'),
 	url(r'^contact/$',contact_page,name='contact'),
 	url(r'^about/$',about_page,name='about'),
