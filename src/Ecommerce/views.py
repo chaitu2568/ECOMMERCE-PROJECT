@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from .forms import Form_page
 from django.contrib.auth import get_user_model,login,authenticate
 
@@ -20,6 +20,14 @@ def contact_page(request):
 	contact_form=Form_page(request.POST or None)
 	context={'first':'Contact Information','matter':'This is the Contactpage','form':contact_form}
 	if contact_form.is_valid():
-		print(contact_form.cleaned_data)
+		# print(contact_form.cleaned_data)
+		if request.is_ajax():
+			return JsonResponse({'message':'Thank You for Providing Your Details'})
+	if contact_form.errors:
+		# print(contact_form.cleaned_data)
+		 
+		errors=contact_form.errors.as_json()
+		if request.is_ajax():
+			return HttpResponse(errors,status=400,content_type='application/json')
 
 	return render(request,'contact/form.html',context)

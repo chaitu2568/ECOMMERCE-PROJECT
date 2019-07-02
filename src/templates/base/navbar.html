@@ -36,7 +36,7 @@
       </li>
       {% endif %}
       <li class="nav-item {% if request.path == carts_url %}active{% endif %}">
-        <a class="nav-link" href="{{carts_url}}">{{request.session.cart_list}} <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a class="nav-link" href="{{carts_url}}"><span class="navbar-count">{{request.session.cart_list}}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
        <!-- <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

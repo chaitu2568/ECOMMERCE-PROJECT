@@ -7,7 +7,18 @@ from billing.models import BillingProfile
 from accounts.models import GuestEmail
 from addresses.forms import AddressForm
 from addresses.models import Address
+from django.http import JsonResponse
 # Create your views here.
+
+def cart_detail_api_view(request):
+    cart_obj,obj_new=Cart.objects.get_or_new(request)
+    products= [{'name':i.title,
+    'price':i.price,
+    'url':i.get_absolute_url(),
+    'id':i.id} for i in cart_obj.products.all()]
+    cart_data={'products':products,'subtotal':cart_obj.subtotal,'total':cart_obj.total}
+    return JsonResponse(cart_data)
+
 
 def cart_home(request):
     cart_obj,obj_new=Cart.objects.get_or_new(request)
@@ -24,9 +35,19 @@ def cart_update(request):
         cart_obj,obj_new=Cart.objects.get_or_new(request)
         if product_obj in cart_obj.products.all():
             cart_obj.products.remove(product_id)
+            added=False
         else:
             cart_obj.products.add(product_id)
+            added=True
         request.session['cart_list']=cart_obj.products.count()
+        if request.is_ajax():
+            json_data={
+            'added':added,
+            'removed':not added,
+            'cartUpdateCount':cart_obj.products.count()
+            }
+            return JsonResponse(json_data,status=200)
+            # return JsonResponse({'message':'Error 400'},status_code=400)
     return redirect('carts:home')
 
 def check_out(request):

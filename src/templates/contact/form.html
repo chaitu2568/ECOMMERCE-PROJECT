@@ -8,9 +8,9 @@
   <div class="container">
     <div class="row">
       <div class="col">
-          <p>{{matter}}</p>
-          <div class="col-sm-6 col-12">
-            <form method="POST">
+          <div class="col-md-6 col-12 mx-auto">
+            <p>{{matter}}</p>
+            <form class="contact-form" method="POST" action="{% url 'contact'%}">
               {%csrf_token%}
               {{form}}
       <button class="btn btn-primary" type="submit">Submit</button>
@@ -21,5 +21,3 @@
 
   </div>
 {% endblock %}
-
-  
