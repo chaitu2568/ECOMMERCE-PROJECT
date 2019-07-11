@@ -1,0 +1,58 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "TEE-Rowdy T-Shirt",
+        "slug": "tee-rowdy",
+        "description": "Vijay Dev premium",
+        "price": "48.333",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-06-18T08:18:42.779Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Calvin-Klein T-Shirt",
+        "slug": "shirt",
+        "description": "Premium Jacket for Womens",
+        "price": "48.333",
+        "image": "products/132606285/132606285.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-06-18T08:18:42.779Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Apple MACBOOK",
+        "slug": "thooplaptop",
+        "description": "Excellent",
+        "price": "48.333",
+        "image": "",
+        "featured": true,
+        "active": true,
+        "timestamp": "2019-06-18T08:18:42.779Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Lorem Ipsum",
+        "slug": "lorem-ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "price": "48.333",
+        "image": "",
+        "featured": false,
+        "active": true,
+        "timestamp": "2019-06-20T15:53:05.228Z"
+    }
+}
+]

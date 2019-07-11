@@ -1,0 +1,8 @@
+This Command is to refresh the data base by copying the data present in the products to fixtures folder
+
+products krishnachaitanyabogavalli$ python manage.py dumpdata products --format json --indent 4 > pro
+ducts/fixtures/products.json
+
+
+
+https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/
