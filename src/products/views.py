@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product
 from django.views.generic import ListView,DetailView
 from django.http import Http404
+from analytics.mixins import ObjectViewMixin
 from carts.models import Cart
 # Create your views here.
 class ProductFeaturedListView(ListView):
@@ -12,7 +13,7 @@ class ProductFeaturedListView(ListView):
         request=self.request
         return Product.objects.all().featured()
 
-class ProductFeaturedDetailView(DetailView):
+class ProductFeaturedDetailView(ObjectViewMixin,DetailView):
     queryset=Product.objects.all().featured()
     template_name='products/featured-detail.html'
     # def get_queryset(self,*args,**kwargs):
@@ -40,7 +41,7 @@ def product_list_view(request):
     context={'object_list':queryset}
     return render(request,'products/lists.html',context)
 
-class ProductDetailSlugView(DetailView):
+class ProductDetailSlugView(ObjectViewMixin,DetailView):
     queryset=Product.objects.all()
     template_name='products/detail.html'
 
@@ -63,17 +64,18 @@ class ProductDetailSlugView(DetailView):
             instance=qs.first()
         except:
             raise Http404('Naavalla Kaadu')
+        # object_view_signal.send(instance.__class__,instance=instance,request=request)
 
         return instance
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(ObjectViewMixin,DetailView):
     # queryset=Product.objects.all()
     template_name='products/detail.html'
 
     def get_context_data(self,*args,**kwargs):
         context=super(ProductDetailView,self).get_context_data(*args,**kwargs)
-        print(context)
+        # print(context)
         return context
 
     def get_object(self,*args,**kwargs):

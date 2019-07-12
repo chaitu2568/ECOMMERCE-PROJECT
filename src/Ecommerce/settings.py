@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'accounts',
     'billing',
     'addresses',
+    'analytics',
 ]
 
 # TO CONVERT THE DEFAULT USER MODEL TO THE CUSTOM USER MODEL
