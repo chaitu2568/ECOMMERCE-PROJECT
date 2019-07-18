@@ -25,10 +25,10 @@ class OrderManager(models.Manager):
 
 class Order(models.Model):
     order_id=models.CharField(max_length=120,blank=True)
-    billing_profile=models.ForeignKey(BillingProfile,null=True,blank=True,on_delete='CASCADE')
-    shipping_address=models.ForeignKey(Address,related_name='shipping_address',null=True,blank=True,on_delete='CASCADE')
-    billing_address=models.ForeignKey(Address,related_name='billing_address',null=True,blank=True,on_delete='CASCADE')
-    cart=models.ForeignKey(Cart,on_delete='CASCADE')
+    billing_profile=models.ForeignKey(BillingProfile,null=True,blank=True,on_delete=models.CASCADE)
+    shipping_address=models.ForeignKey(Address,related_name='shipping_address',null=True,blank=True,on_delete=models.CASCADE)
+    billing_address=models.ForeignKey(Address,related_name='billing_address',null=True,blank=True,on_delete=models.CASCADE)
+    cart=models.ForeignKey(Cart,on_delete=models.CASCADE)
     status=models.CharField(max_length=120,default='created',choices=ORDER_STATUS_CHOICES)
     shipping_total=models.DecimalField(decimal_places=2,max_digits=100,default=6.85)
     total=models.DecimalField(decimal_places=2,max_digits=100,default=0.00)

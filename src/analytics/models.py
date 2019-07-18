@@ -4,16 +4,17 @@ from django.conf import settings
 from django.contrib.sessions.models import Session
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from .signals import object_view_signal
+from .signals import object_viewed_signal
 from .utils import get_client_ip
 from accounts.signals import user_logged_in
 # Create your models here.
 User=settings.AUTH_USER_MODEL
-
+FORCE_SESSION_TO_ONE=getattr(settings,'FORCE_SESSION_TO_ONE',False)
+FORCE_INACTIVEUSER_END_SESSION=getattr(settings,'FORCE_INACTIVEUSER_END_SESSION',False)
 class ObjectViewed(models.Model):
-    user=models.ForeignKey(User,blank=True,null=True,on_delete='CASCADE')
+    user=models.ForeignKey(User,blank=True,null=True,on_delete=models.CASCADE)
     ip_address=models.CharField(max_length=200,blank=True,null=True)
-    content_type=models.ForeignKey(ContentType,on_delete='CASCADE') #Can take Any of the Models.
+    content_type=models.ForeignKey(ContentType,on_delete=models.CASCADE) #Can take Any of the Models.
     object_id=models.PositiveIntegerField() #Takes User-id, Object-id, Product_id
     content_object=GenericForeignKey('content_type','object_id')
     timestamp=models.DateTimeField(auto_now_add=True)
@@ -37,10 +38,10 @@ def object_viewed_receiver(sender, instance, request, *args, **kwargs):
             object_id=instance.id,
             ip_address=get_client_ip(request)
     )
-object_view_signal.connect(object_viewed_receiver)
+object_viewed_signal.connect(object_viewed_receiver)
 
 class UserSession(models.Model):
-    user=models.ForeignKey(User,blank=True,null=True,on_delete='CASCADE')
+    user=models.ForeignKey(User,blank=True,null=True,on_delete=models.CASCADE)
     ip_address=models.CharField(max_length=200,blank=True,null=True)
     session_key=models.CharField(max_length=100,blank=True,null=True)
     timestamp=models.DateTimeField(auto_now_add=True)
@@ -62,11 +63,25 @@ class UserSession(models.Model):
 
 def post_save_session_receiver(sender,instance,created,*args,**kwargs):
     if created:
-            qs=UserSession.objects.filter(user=instance.user).exclude(id=instance.id)
+            qs=UserSession.objects.filter(user=instance.user,active=False,ended=False).exclude(id=instance.id)
+            for i in qs:
+                i.end_session()
+            if not instance.active and not instance.ended:
+                instance.end_session()
+if FORCE_SESSION_TO_ONE:
+    post_save.connect(post_save_session_receiver,sender=UserSession)
+
+
+def post_save_user_changed_receiver(sender,instance,created,*args,**kwargs):
+    if not created:
+        if instance.is_active==False:
+            qs=UserSession.objects.filter(user=instance.user,active=False,ended=False).exclude(id=instance.id)
             for i in qs:
                 i.end_session()
 
-post_save.connect(post_save_session_receiver,sender=UserSession)
+if FORCE_INACTIVEUSER_END_SESSION:
+    post_save.connect(post_save_user_changed_receiver,sender=User)
+
 
 
 

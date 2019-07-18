@@ -47,18 +47,22 @@
 </div>
 
 {% else %}
+{% if not has_card %}
+  <div class='stripe-payment-form' data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title='Add Payment Method'></div>
+{% else %}
 <h1><b>Finish  CheckOut Process</b></h1>
 <h2>Items in Cart: {% for product in object.cart.products.all %}{{product}}{% if not forloop.last %},{% endif %}{%endfor%}</h2>
 <h2>Shipping Address:{{object.shipping_address.pulladdress}}</h2>
 <h2>Billing Address:{{object.billing_address.pulladdress}}</h2>
 <h3>Order Total: {{object.cart.total}}</h3>
+<h3>Payment Method: {{billing_profile.default_card}}(<a href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">Change Payment Method</a>)</h3>
 <h3>Shipping Costs:{{object.shipping_total}}</h3>
 <h3>Total Amount to Pay:<b>{{object.total}}</b></h3>
 <form class="form" action="" method="POST">
   {% csrf_token %}
   <button class="btn btn-success" type="submit">CheckOut</button>
 </form>
-
+{% endif %}
 {% endif %}
 {% endif %}
 {% endblock %}

@@ -50,7 +50,7 @@ class UserAdminChangeForm(forms.ModelForm):
 
 
 class GuestForm(forms.Form):
-	Email=forms.EmailField()
+	email=forms.EmailField()
 
 class LoginForm(forms.Form):
 	email=forms.EmailField(label='Email')

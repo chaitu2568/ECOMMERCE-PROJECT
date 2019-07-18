@@ -44,7 +44,6 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     email = models.EmailField(
-        verbose_name='Email',
         max_length=255,
         unique=True,
     )
@@ -96,10 +95,10 @@ class User(AbstractBaseUser):
 
 # Create your models here.
 class GuestEmail(models.Model):
-    Email=models.EmailField()
+    email=models.EmailField()
     active=models.BooleanField(default=True)
     update=models.DateTimeField(auto_now=True)
     timestamp=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Email
+        return self.email

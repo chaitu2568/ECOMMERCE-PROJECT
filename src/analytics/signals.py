@@ -3,4 +3,4 @@
 
 from django.dispatch import Signal
 
-object_view_signal=Signal(providing_args=['instance','request']) #Instance belongs to the Product with the title having a Partiular id
+object_viewed_signal=Signal(providing_args=['instance','request']) #Instance belongs to the Product with the title having a Partiular id

@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product
 from django.views.generic import ListView,DetailView
 from django.http import Http404
-from analytics.mixins import ObjectViewMixin
+from analytics.mixins import ObjectViewedMixin
 from carts.models import Cart
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 class ProductFeaturedListView(ListView):
     # queryset=Product.objects.all()
@@ -13,7 +15,7 @@ class ProductFeaturedListView(ListView):
         request=self.request
         return Product.objects.all().featured()
 
-class ProductFeaturedDetailView(ObjectViewMixin,DetailView):
+class ProductFeaturedDetailView(ObjectViewedMixin,DetailView):
     queryset=Product.objects.all().featured()
     template_name='products/featured-detail.html'
     # def get_queryset(self,*args,**kwargs):
@@ -41,7 +43,8 @@ def product_list_view(request):
     context={'object_list':queryset}
     return render(request,'products/lists.html',context)
 
-class ProductDetailSlugView(ObjectViewMixin,DetailView):
+class ProductDetailSlugView(LoginRequiredMixin,ObjectViewedMixin,DetailView):
+    login_url = '/login/'
     queryset=Product.objects.all()
     template_name='products/detail.html'
 
@@ -69,7 +72,7 @@ class ProductDetailSlugView(ObjectViewMixin,DetailView):
         return instance
 
 
-class ProductDetailView(ObjectViewMixin,DetailView):
+class ProductDetailView(ObjectViewedMixin,DetailView):
     # queryset=Product.objects.all()
     template_name='products/detail.html'
 

@@ -6,8 +6,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
+
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/v3/"></script>
 <!-- Custom JavaScript -->
 <script src="{% static 'js/custom_ecommerce.js' %}"></script>
-
+<!-- Ecommerce stripe Integration JavaScript -->
+<script src="{% static 'js/ecommerce.main.js' %}"></script>
 <!-- Django AJAX CSRF Token -->
 <script src="{% static 'js/csrf.ajax.js' %}"></script>
+
+<!-- JS Rendering -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.88/jsrender.min.js"></script>
+
+{% include 'base/jstemplates.html' %}
