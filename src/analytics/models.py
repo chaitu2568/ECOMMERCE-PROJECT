@@ -12,9 +12,9 @@ User=settings.AUTH_USER_MODEL
 FORCE_SESSION_TO_ONE=getattr(settings,'FORCE_SESSION_TO_ONE',False)
 FORCE_INACTIVEUSER_END_SESSION=getattr(settings,'FORCE_INACTIVEUSER_END_SESSION',False)
 class ObjectViewed(models.Model):
-    user=models.ForeignKey(User,blank=True,null=True,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,blank=True,null=True)
     ip_address=models.CharField(max_length=200,blank=True,null=True)
-    content_type=models.ForeignKey(ContentType,on_delete=models.CASCADE) #Can take Any of the Models.
+    content_type=models.ForeignKey(ContentType) #Can take Any of the Models.
     object_id=models.PositiveIntegerField() #Takes User-id, Object-id, Product_id
     content_object=GenericForeignKey('content_type','object_id')
     timestamp=models.DateTimeField(auto_now_add=True)
@@ -41,7 +41,7 @@ def object_viewed_receiver(sender, instance, request, *args, **kwargs):
 object_viewed_signal.connect(object_viewed_receiver)
 
 class UserSession(models.Model):
-    user=models.ForeignKey(User,blank=True,null=True,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,blank=True,null=True)
     ip_address=models.CharField(max_length=200,blank=True,null=True)
     session_key=models.CharField(max_length=100,blank=True,null=True)
     timestamp=models.DateTimeField(auto_now_add=True)

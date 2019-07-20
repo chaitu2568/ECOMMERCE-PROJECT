@@ -27,7 +27,7 @@ def check_out_address_create_view(request):
     return redirect('carts:checkout')
 
 def check_out_address_reuse_view(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated():
         context={}
         next_ = request.GET.get('next')
         next_post = request.POST.get('next')

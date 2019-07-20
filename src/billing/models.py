@@ -14,7 +14,7 @@ class BillingProfileManager(models.Manager):
         guest_email_id=request.session.get('guest_email_id')
         obj=None
         created=False
-        if user.is_authenticated:
+        if user.is_authenticated():
              obj,created=self.model.objects.get_or_create(user=user,email=user.email)
         elif guest_email_id is not None:
             # user = accounts.models.User.objects.get(email='chaitu@gmail.com')
@@ -25,7 +25,7 @@ class BillingProfileManager(models.Manager):
         return obj,created
 
 class BillingProfile(models.Model):
-    user=models.OneToOneField(User,null=True,blank=True,on_delete=models.CASCADE)
+    user=models.OneToOneField(User,null=True,blank=True)
     email=models.EmailField()
     active=models.BooleanField(default=True)
     update=models.DateTimeField(auto_now=True)
@@ -73,7 +73,6 @@ def billing_profile_created_receiver(sender,instance,*args,**kwargs):
                     )
         print(customer)
         instance.customer_id=customer.id
-        instance.save()
 
 
 
@@ -114,7 +113,7 @@ class CardManager(models.Manager):
         return None
 
 class Card(models.Model):
-    billing_profile         = models.ForeignKey(BillingProfile,on_delete=models.CASCADE)
+    billing_profile         = models.ForeignKey(BillingProfile)
     stripe_id               = models.CharField(max_length=120)
     brand                   = models.CharField(max_length=120, null=True, blank=True)
     country                 = models.CharField(max_length=20, null=True, blank=True)
@@ -170,7 +169,7 @@ class ChargeManager(models.Manager):
         return new_charge_obj.paid, new_charge_obj.seller_message
 
 class Charge(models.Model):
-    billing_profile         = models.ForeignKey(BillingProfile,on_delete=models.CASCADE)
+    billing_profile         = models.ForeignKey(BillingProfile)
     stripe_id               = models.CharField(max_length=120)
     paid                    = models.BooleanField(default=False)
     refunded                = models.BooleanField(default=False)

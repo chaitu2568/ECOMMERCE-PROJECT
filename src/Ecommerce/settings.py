@@ -46,12 +46,18 @@ INSTALLED_APPS = [
     'billing',
     'addresses',
     'analytics',
+    'marketing',
 ]
 
 # TO CONVERT THE DEFAULT USER MODEL TO THE CUSTOM USER MODEL
 AUTH_USER_MODEL='accounts.User'
 FORCE_SESSION_TO_ONE=False
 FORCE_INACTIVEUSER_END_SESSION=False
+
+MAILCHIMP_API_KEY           = "bacf1a291a56f9a4d91e82a742f74331-us3"
+MAILCHIMP_DATA_CENTER       = 'us3'
+MAILCHIMP_EMAIL_LIST_ID     = 'b5113c5eb4'
+
 STRIPE_SECRET_KEY='sk_test_QUzfQYwOTe5iP5XZYzsywgIT00kXSQ0kj4'
 STRIPE_PUB_KEY='pk_test_AdhJZprPeCS3mljqZaZmM7qW00iKwiACAE'
 
