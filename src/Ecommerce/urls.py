@@ -25,6 +25,7 @@ from accounts.views import guest_register_page
 from addresses.views import check_out_address_create_view,check_out_address_reuse_view
 from carts.views import cart_detail_api_view
 from billing.views import payment_method_view, payment_method_createview
+from marketing.views import MarketingPreferenceUpdateView
 
 urlpatterns = [
 
@@ -40,6 +41,7 @@ urlpatterns = [
     url(r'^logout/$',LogoutView.as_view(),name='logout'),
     url(r'^api/cart/$',cart_detail_api_view,name='cart-api'),
     url(r'^register/guest/$',guest_register_page,name='guest_register'),
+    url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
     url(r'^login/$',LoginView.as_view(),name='login'),
 	url(r'^contact/$',contact_page,name='contact'),
 	url(r'^about/$',about_page,name='about'),

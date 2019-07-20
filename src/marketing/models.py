@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save, pre_save
-
 from .utils import Mailchimp
 
 class MarketingPreference(models.Model):
@@ -20,7 +19,8 @@ class MarketingPreference(models.Model):
 
 def marketing_pref_create_receiver(sender, instance, created, *args, **kwargs):
     if created:
-        status_code, response_data = Mailchimp().subscribe(instance.user.email)
+        # status_code, response_data = Mailchimp().subscribe(instance.user.email)
+        status_code, response_data = Mailchimp().add_email(instance.user.email)
         print(status_code, response_data)
 
 
